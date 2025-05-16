@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Ghastly Dragon")
+local mType = Game.createMonsterType("Shadow Draptor")
 local monster = {}
 
-monster.description = "a ghastly dragon"
+monster.description = "a shadow draptor"
 monster.experience = 4600
 monster.outfit = {
-	lookType = 351,
+	lookType = 427,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,

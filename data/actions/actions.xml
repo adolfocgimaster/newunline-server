@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action itemid="7410" script="items/speed_maker.lua"/>
+</actions>

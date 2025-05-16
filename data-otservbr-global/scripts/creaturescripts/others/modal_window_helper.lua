@@ -1,4 +1,5 @@
 local modalWindowHelper = CreatureEvent("ModalWindowHelper")
+
 function modalWindowHelper.onModalWindow(player, modalWindowId, buttonId, choiceId)
 	local modalWindow
 	for _, window in ipairs(modalWindows.windows) do
@@ -23,11 +24,12 @@ function modalWindowHelper.onModalWindow(player, modalWindowId, buttonId, choice
 		if button.id == buttonId then
 			local callback = button.callback or modalWindow.defaultCallback
 			if callback then
-				callback(button, choice)
+				callback(player, button, choice) -- ← aquí está el fix
 				break
 			end
 		end
 	end
 	return true
 end
+
 modalWindowHelper:register()

@@ -13,3 +13,6 @@ dofile(DATA_DIRECTORY.. '/lib/others/load.lua')
 
 -- Quests library
 dofile(DATA_DIRECTORY.. '/lib/quests/quest.lua')
+
+--Pet System
+dofile('data/lib/pets_lib.lua')

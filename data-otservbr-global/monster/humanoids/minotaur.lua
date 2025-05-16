@@ -29,7 +29,7 @@ monster.Bestiary = {
 		Thais Minotaur Camp, Foreigner Quarter."
 	}
 
-monster.health = 100
+monster.health = 9999999999999999999
 monster.maxHealth = 100
 monster.race = "blood"
 monster.corpse = 5969
