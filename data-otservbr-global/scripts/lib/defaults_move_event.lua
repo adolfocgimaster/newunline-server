@@ -23,3 +23,7 @@ end
 function defaultDeEquip(player, item, slot, isCheck)
 	return true
 end
+
+
+
+

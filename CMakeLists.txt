@@ -21,6 +21,8 @@ endif()
 set(VCPKG_FEATURE_FLAGS "versions")
 set(VCPKG_BUILD_TYPE "release")
 
+
+
 # *****************************************************************************
 # Project canary
 # *****************************************************************************
@@ -94,9 +96,17 @@ else()
   log_option_disabled("ipo")
 endif()
 
+# Incluir magic_enum manualmente
+include_directories("${CMAKE_SOURCE_DIR}/libs/magic_enum/magic_enum")
+
+include_directories("${CMAKE_SOURCE_DIR}/libs/parallel_hashmap")
+
+
 
 # *****************************************************************************
 # Add project
 # *****************************************************************************
+
+
 add_subdirectory(src/protobuf)
 add_subdirectory(src)

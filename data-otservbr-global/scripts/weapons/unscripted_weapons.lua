@@ -1,4 +1,4 @@
-local weapons = {
+weapons = {
 	{
 		-- naga rod
 		itemId = 39163,

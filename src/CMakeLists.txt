@@ -84,6 +84,19 @@ endif()
 #endforeach()
 
 
+
+
+# ================= Manual pugixml workaround ====================
+if(NOT TARGET pugixml::pugixml)
+  set(PUGIXML_LIB "/usr/lib/x86_64-linux-gnu/libpugixml.so")
+  add_library(pugixml::pugixml SHARED IMPORTED)
+  set_target_properties(pugixml::pugixml PROPERTIES
+    IMPORTED_LOCATION "${PUGIXML_LIB}"
+    INTERFACE_INCLUDE_DIRECTORIES "/usr/include"
+  )
+endif()
+
+
 # *****************************************************************************
 # Options Code
 # *****************************************************************************
@@ -147,20 +160,30 @@ find_package(GMP REQUIRED)
 find_package(magic_enum CONFIG REQUIRED)
 
 if (MSVC)
-	find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
-	find_package(CURL REQUIRED)
-	find_package(jsoncpp REQUIRED)
-	find_package(MySQL REQUIRED)
-	find_package(PugiXML REQUIRED)
+  find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
+  find_package(CURL)
+  if(NOT CURL_FOUND)
+      message(FATAL_ERROR "libcurl not found! Please install libcurl4-openssl-dev")
+  endif()
+  find_package(jsoncpp REQUIRED)
+  find_package(MySQL REQUIRED)
+  find_package(PugiXML REQUIRED)
 else()
-	find_package(Boost REQUIRED COMPONENTS system filesystem iostreams date_time)
-	find_package(CURL CONFIG REQUIRED)
-	find_package(jsoncpp CONFIG REQUIRED)
-	find_package(pugixml CONFIG REQUIRED)
-	find_package(unofficial-libmariadb CONFIG REQUIRED)
-endif (MSVC)
+  find_package(Boost REQUIRED COMPONENTS system filesystem iostreams date_time)
+  find_package(CURL REQUIRED)
+
+  # jsoncpp
+  include_directories("/usr/include/jsoncpp")
+  link_directories("/usr/lib/x86_64-linux-gnu")
+
+  # MariaDB (reemplazo manual)
+  include_directories("/usr/include/mariadb")
+  link_directories("/usr/lib/x86_64-linux-gnu")
+endif()
 
 include(GNUInstallDirs)
+
+
 
 # *****************************************************************************
 # Projetct configuration
@@ -326,13 +349,26 @@ if (MSVC)
 	if(BUILD_STATIC_LIBRARY)
 		log_option_enabled("STATIC_LIBRARY")
 		set(CMAKE_FIND_LIBRARY_SUFFIXES ".lib")
-		find_package(unofficial-libmariadb CONFIG REQUIRED)
+		# Comentamos o eliminamos la búsqueda de unofficial-libmariadb
+		# find_package(unofficial-libmariadb CONFIG REQUIRED)
+
 		set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-		target_link_libraries(${PROJECT_NAME}	PRIVATE unofficial::libmariadb unofficial::mariadbclient jsoncpp_static)
+
+		# Enlazamos directamente con las librerías mariadb y jsoncpp estática
+		target_link_libraries(${PROJECT_NAME} PRIVATE
+			/usr/lib/x86_64-linux-gnu/libmariadb.a  # o usa .so si no tienes .a
+			/usr/lib/x86_64-linux-gnu/libjsoncpp.a
+		)
 	else()
 		log_option_disabled("STATIC_LIBRARY")
-		target_link_libraries(${PROJECT_NAME}	PRIVATE jsoncpp_lib)
+
+		# Enlazamos jsoncpp compartido, mariadb se asume enlazada en runtime
+		target_link_libraries(${PROJECT_NAME} PRIVATE jsoncpp_lib)
+
+		# Agregar librería mariadb compartida para runtime linking
+		target_link_libraries(${PROJECT_NAME} PRIVATE /usr/lib/x86_64-linux-gnu/libmariadb.so)
 	endif()
+
 
   target_compile_options(${PROJECT_NAME} PUBLIC /MP /FS /Zf /EHsc )
 
@@ -388,25 +424,20 @@ else()
 			Boost::iostreams
 			Boost::system
 			CURL::libcurl
-			jsoncpp_static
-			unofficial::libmariadb unofficial::mariadbclient
+			jsoncpp
+			mariadb
 			pugixml::pugixml
 			spdlog::spdlog
 			Threads::Threads
 			magic_enum::magic_enum
+			z
 	)
+
 
 endif (MSVC)
 
-## Link compilation files to build/bin folder, else link to the main dir
-if (TOGGLE_BIN_FOLDER)
-	set_target_properties(${PROJECT_NAME}
-		PROPERTIES
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
-	)
-else()
-	set_target_properties(${PROJECT_NAME}
-	PROPERTIES
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/"
-	)
-endif()
+# Forzar que el ejecutable se genere en el directorio principal del proyecto
+set_target_properties(${PROJECT_NAME}
+  PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}"
+)

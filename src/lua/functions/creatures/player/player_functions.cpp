@@ -3199,3 +3199,27 @@ int PlayerFunctions::luaPlayerGetForgeCores(lua_State *L) {
 	lua_pushnumber(L, static_cast<lua_Number>(core));
 	return 1;
 }
+
+int PlayerFunctions::luaPlayerSetAttackSpeed(lua_State* L) {
+    // player:setAttackSpeed(ms)
+    auto player = getUserdata<Player>(L, 1);
+    uint32_t ms = getNumber<uint32_t>(L, 2);
+    if (player) {
+        player->setAttackSpeed(ms);
+        pushBoolean(L, true);
+    } else {
+        lua_pushnil(L);
+    }
+    return 1;
+}
+
+int PlayerFunctions::luaPlayerGetAttackSpeed(lua_State* L) {
+    // player:getAttackSpeed()
+    auto player = getUserdata<Player>(L, 1);
+    if (player) {
+        lua_pushnumber(L, player->getAttackSpeed());
+    } else {
+        lua_pushnil(L);
+    }
+    return 1;
+}

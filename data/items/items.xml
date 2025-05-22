@@ -1,5 +1,160 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
+
+
+<!-- remover-->
+	<item id="39989" article="a" name="maker remover">
+		<attribute key="description" value="With this item you can remove any customize maker from any equipament or 15 upgrade tokens." />
+		<attribute key="weight" value="300" />
+		<attribute key="charges" value="1" />
+		<attribute key="showcharges" value="1" />
+	</item>
+
+<!-- Special Makers-->	
+	<item id="39990" article="a" name="brutal weapon maker 2.5x">   
+		<attribute key="description" value="Special abilities: 2.5x attack speed."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39991" article="a" name="brutal weapon maker 1.75x">   
+		<attribute key="description" value="Special abilities: 1.75x attack speed."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39992" article="a" name="blessed backpack maker 5">   
+		<attribute key="description" value="Special abilities: extra 5 sword, axe, club, distance and shield skills."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39993" article="a" name="blessed backpack maker 10">   
+		<attribute key="description" value="Special abilities: extra 10 sword, axe, club, distance and shield skills."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39994" article="a" name="blessed helmet maker 10">
+		<attribute key="description" value="Special abilities: extra 10 sword, axe, club, distance and shield skills."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39995" article="a" name="blessed ring maker 5">  
+		<attribute key="description" value="Special abilities: extra 5 sword, axe, club, distance and shield skills."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39996" article="a" name="magically backpack maker 5">   
+		<attribute key="description" value="Special abilities: extra 5 magic levels and shield skill."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39997" article="a" name="magically backpack maker 10">   
+		<attribute key="description" value="Special abilities: extra 10 magic levels and shield skill."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39998" article="a" name="magically helmet maker 10"> 
+		<attribute key="description" value="Special abilities: extra 10 magic levels and shield skill."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="39999" article="a" name="magically ring maker 5"> 
+		<attribute key="description" value="Special abilities: extra 5 magic levels and shield skill."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40000" article="a" name="speedy shoes maker 20%">
+		<attribute key="description" value="Special abilities: Walking speed +20%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40001" article="a" name="speedy shoes maker 35%">
+		<attribute key="description" value="Special abilities: Walking speed +35%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40002" article="a" name="speedy shoes maker 50%">
+		<attribute key="description" value="Special abilities: Walking speed 50%"/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40003" article="a" name="charmed amulet maker 25%">
+		<attribute key="description" value="Special abilities: 25% spell cooldown reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40004" article="a" name="charmed amulet maker 35%">
+		<attribute key="description" value="Special abilities: 35% spell cooldown reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40005" article="a" name="charmed amulet maker 50%">
+		<attribute key="description" value="Special abilities: 50% spell cooldown reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40006" article="a" name="supreme legs maker 5%">  
+		<attribute key="description" value="Special abilities: Maximum health and mana +5%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40007" article="a" name="supreme helmet maker 5%">   
+		<attribute key="description" value="Special abilities: Maximum health and mana +5%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40008" article="a" name="mystick armor maker +15%">
+		<attribute key="description" value="Special abilities: Maximum mana +15%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40009" article="a" name="mystick armor maker +25%">
+		<attribute key="description" value="Special abilities: Maximum mana +25%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40010" article="a" name="rigid armor maker +15%">
+		<attribute key="description" value="Special abilities: Maximum health +15%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40011" article="a" name="rigid armor maker +25%">
+		<attribute key="description" value="Special abilities: Maximum health +25%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40012" article="a" name="supreme armor maker +30%">
+		<attribute key="description" value="Special abilities: Maximum health and mana +30%."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40013" article="a" name="warlock helmet maker 8"> 
+		<attribute key="description" value="Special abilities: Health recovery +8 max. mana recovery +8 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40014" article="a" name="warlock legs maker 8">    
+		<attribute key="description" value="Special abilities: Health recovery +8 max. mana recovery +8 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40015" article="a" name="warlock ring maker 8">
+		<attribute key="description" value="Special abilities: Health recovery +8 max. mana recovery +8 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40016" article="a" name="warlock ring maker 15">
+		<attribute key="description" value="Special abilities: Health recovery +15 max. mana recovery +15 max."/>
+		<attribute key="weight" value="2300" />
+
+	<item id="40017" article="a" name="warlock doll maker 8">
+		<attribute key="description" value="Special abilities: Health recovery +8 max. mana recovery +8 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40018" article="a" name="warlock doll maker 15">
+		<attribute key="description" value="Special abilities: Health recovery +15 max. mana recovery +15 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40019" article="a" name="warlock quiver maker 8">
+		<attribute key="description" value="Special abilities: Health recovery +8 max. mana recovery +8 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40020" article="a" name="warlock quiver maker 15">
+		<attribute key="description" value="Special abilities: Health recovery +15 max. mana recovery +15 max."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	</item>
+	<item id="40021" article="a" name="magically-shielded shield maker 20%">  
+		<attribute key="description" value="Special abilities: 20% Extra magical damage reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40022" article="a" name="magically-shielded shield maker 30%">  
+		<attribute key="description" value="Special abilities: 30% Extra magical damage reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40023" article="a" name="double-forced Shield maker 20%">   
+		<attribute key="description" value="Special abilities: 20% Extra physical damage reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	<item id="40024" article="a" name="double-forced Shield maker 30%">   
+		<attribute key="description" value="Special abilities: 30% Extra physical damage reduction."/>
+		<attribute key="weight" value="2300" />
+	</item>
+	
+	
+
 	<!--  Liquids -->
 	<!--  Fluid type 0 is same as water (id="1") -->
 	<item id="1" name="water" /> 

@@ -2179,6 +2179,14 @@ class Player final : public Creature, public Cylinder
 
 		void registerForgeHistoryDescription(ForgeHistory history);
 
+		uint32_t getAttackSpeed() const {
+			return customAttackSpeed > 0 ? customAttackSpeed : vocation->getAttackSpeed();
+		}
+
+		void setAttackSpeed(uint32_t speed) {
+			customAttackSpeed = speed;
+		}
+
 	private:
 		std::forward_list<Condition*> getMuteConditions() const;
 
@@ -2477,9 +2485,7 @@ class Player final : public Creature, public Cylinder
 
 		bool isPromoted() const;
 
-		uint32_t getAttackSpeed() const {
-			return vocation->getAttackSpeed();
-		}
+		uint32_t customAttackSpeed = 0;
 
 		static double_t getPercentLevel(uint64_t count, uint64_t nextLevelCount);
 		double getLostPercent() const;
